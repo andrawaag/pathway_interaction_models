@@ -21,14 +21,14 @@ start = <reaction>
 	hmap:hasModifier @<participant> ;
 }
 
-<participant> /^http:\/\/rdf.hmr.metabolicatlas.org\/reaction\// {
+<participant> /^http:\/\/rdf.hmr.metabolicatlas.org\/species\// {
 	rdf:type [sbo:~] ;
 	rdfs:label LITERAL ;
 	dcterms:isPartOf @<compartment> ;
 	skos:exactMatch [chebi:~ ensg:~ keggc:~ lipm:~ ncbig:~ 	];
 }
 
-<compartment> /^http:\/\/rdf.hmr.metabolicatlas.org\/reaction\// {
+<compartment> /^http:\/\/rdf.hmr.metabolicatlas.org\/compartment\// {
 	rdf:type [sbo:~] ;
 	rdfs:label LITERAL ;
 	hmap:hasSpatialDimension	xsd:integer ;

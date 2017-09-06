@@ -31,5 +31,5 @@ start = <reaction>
 <compartment> /^http:\/\/rdf.hmr.metabolicatlas.org\/compartment\// {
 	rdf:type [sbo:~] ;
 	rdfs:label LITERAL ;
-	hmap:hasSpatialDimension	xsd:integer ;
+	hmap:hasSpatialDimension	xsd:integer /[1-3]/ ;
 }

@@ -1,0 +1,33 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX hmap: <http://rdf.hmr.metabolicatlas.org/property>
+PREFIX sbo: <http://biomodels.net/SBO/>
+PREFIX chebi: <http://identifiers.org/chebi/>
+PREFIX ensg: <http://identifiers.org/ensembl/>
+PREFIX keggc: <http://identifiers.org/kegg.compound/>
+PREFIX lipm: <http://identifiers.org/lipidmaps/>
+PREFIX ncbig: <http://identifiers.org/ncbi.gene/>
+
+start = <reaction>
+
+<reaction> /^http:\/\/rdf.hmr.metabolicatlas.org\/reaction\// reaction:~ {
+	rdf:type [sbo:~] ;
+	dcterms:identifier LITERAL ;
+	hmap:hasReactant @<participant> ;
+	hmap:hasProduct @<participant> ;
+	hmap:hasModifier @<participant> ;
+}
+
+<participant> /^http:\/\/rdf.hmr.metabolicatlas.org\/reaction\// {
+	rdf:type [sbo:~] ;
+	rdfs:label LITERAL ;
+	dcterms:isPartOf @<compartment>
+	skos:exactMatch [chebi:~ ensg:~ keggc:~ lipm:~ ncbig:~ 	]
+}
+
+<compartment> /^http:\/\/rdf.hmr.metabolicatlas.org\/reaction\// {
+	rdf:type [sbo:~] ;
+	rdfs:label LITERAL ;
+	hmap:hasSpatialDimension	xsd:integer ;
+}

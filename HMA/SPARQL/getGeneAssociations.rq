@@ -1,0 +1,14 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX ncbig: <http://identifiers.org/ncbi.gene/>
+PREFIX hmap: <http://rdf.hmr.metabolicatlas.org/property/>
+
+SELECT ?reaction ?source ?reactantIRI ?productIRI WHERE {
+  VALUES ?source {ncbig:10162} 
+  
+      ?participant skos:exactMatch ?source .
+      ?product skos:exactMatch ?productIRI .
+      ?reactant skos:exactMatch ?reactantIRI .
+      ?reaction hmap:hasModifier ?participant ;
+                hmap:hasProduct ?product ;
+      			hmap:hasReactant ?reactant .
+  }
